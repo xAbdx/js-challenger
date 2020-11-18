@@ -13,7 +13,8 @@ function toShowPositive() {
 function mergeArrays() {
     let arr1 = [1, 2, 3];
     let arr2 = [4, 5];
-    let merged = arr1.concat(arr2);
+    let arr3 = [44,22];
+    let merged = arr1.concat(arr2,arr3);
     document.getElementById('merge').innerHTML = merged;
 }
 
@@ -35,10 +36,25 @@ function isItArray() {
 }
 
 // function 5#
-function capitalize(text) {
-    let input = text.toLowerCase().split(' ');
-    for (let i = 0; i < input.length; i++) {
-        input[i] = input.charAt(0).toUpperCase()+ input[i].substring(1);
+function capitalize (string) {
+    let words = string.split(" ").map(word => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    });
+    return words.join(" "); 
+}
+document.getElementById('capitalizeLetter').innerHTML = capitalize('made by abd salameh');
+
+// function 6#
+function bubbleSort(arr) {
+    let num = arr.length;
+    for (let i = 0; i < num; i++) {
+        for (let j = 0; j < num; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+        }
     }
-    document.getElementById('capitalizeLetter').innerHTML = capitalizeLetter;
+    document.getElementById('sort').innerHTML = arr;
 }
